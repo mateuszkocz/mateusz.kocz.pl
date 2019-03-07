@@ -13,14 +13,17 @@ const GlobalStyles = createGlobalStyle`
 const Main = styled.main`
   position: relative;
   margin: 0 auto;
-  padding: 1rem;
-  max-width: 800px;
+  padding: 1rem 3rem;
   height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 2rem;
+  
+  @media (min-width: 600px) {
+    max-width: 60%;
+  }
 
   h1 {
     margin: 0;
