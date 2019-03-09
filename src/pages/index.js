@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     line-height: 1.4;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 `
 
