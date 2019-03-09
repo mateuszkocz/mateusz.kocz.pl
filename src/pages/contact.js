@@ -57,7 +57,7 @@ const Contact = () => (
       <p>
         <Label>
           <span>Your name</span>
-          <Input type="text" name="name" required placeholder="Who are you?"/>
+          <Input type="text" name="name" required placeholder="Who are you?" autoFocus/>
         </Label>
       </p>
       <p>
