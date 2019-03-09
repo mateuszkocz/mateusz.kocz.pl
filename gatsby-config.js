@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Mateusz Kocz ★ Software Developer`,
+    description: `I create web applications in JavaScript and Typescript. I mostly use React. Sometimes I also write some Angular and server-side Express code.`,
+    author: `@mateuszkocz`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -10,11 +10,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Mateusz Kocz ★ Software Developer`,
+        short_name: `Mateusz Kocz`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
         // TODO
         // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
@@ -25,3 +25,4 @@ module.exports = {
     // 'gatsby-plugin-offline',
   ],
 }
+
