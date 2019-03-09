@@ -11,7 +11,16 @@ const Contact = () => (
     >
       <input type="hidden" name="bot-field"/>
       <label>
-        Your Name: <input type="text" name="name"/>
+        Your Name:
+        <input type="text" name="name" required/>
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" required/>
+      </label>
+      <label>
+        Message:
+        <textarea name="message" required/>
       </label>
       <button type="submit">Send</button>
     </form>
