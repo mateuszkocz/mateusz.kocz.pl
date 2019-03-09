@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
+import SEO from "./seo"
 
 const GlobalStyles = createGlobalStyle`
   body, #___gatsby, #___gatsby > * {
@@ -69,9 +70,10 @@ const Star = styled.aside`
   }
 `
 
-const Layout = ({children}) => (
+const Layout = ({children, title = ''}) => (
   <>
     <GlobalStyles/>
+    <SEO title={title}/>
     <Main>
       <Content>
         {children}
