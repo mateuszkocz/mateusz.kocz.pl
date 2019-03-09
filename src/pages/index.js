@@ -20,6 +20,7 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   font-size: 2rem;
+  color: #444;
   
   @media (min-width: 600px) {
     max-width: 60%;
@@ -48,7 +49,8 @@ const Star = styled.aside`
   width: 100%;
   bottom: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  color: #a1a1a1;
   span {
     cursor: pointer;
   }
