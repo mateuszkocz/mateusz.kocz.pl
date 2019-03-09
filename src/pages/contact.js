@@ -1,6 +1,7 @@
 import React from "react"
-import styled, {css} from 'styled-components'
+import styled, { css } from "styled-components"
 import Layout from "../components/layout"
+import { Link } from "gatsby"
 
 const Label = styled.label`
   span {
@@ -75,7 +76,7 @@ const Contact = () => (
       </p>
       <p>
         <SubmitButton type="submit">Send</SubmitButton>
-        <a href="/">Back home</a>.
+        <Link to="/">Back home</Link>.
       </p>
     </form>
   </Layout>
