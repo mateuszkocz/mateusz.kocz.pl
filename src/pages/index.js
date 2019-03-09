@@ -1,99 +1,23 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
-
-const GlobalStyles = createGlobalStyle`
-  body, #___gatsby, #___gatsby > * {
-    min-height: 100vh;
-  }
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-    line-height: 1.4;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-`
-
-const Main = styled.main`
-  margin: 0 auto;
-  padding: 1rem 3rem;
-  min-height: 100vh;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  font-size: 2rem;
-  color: #444;
-  
-  @media (min-width: 34rem) {
-    padding: 1rem 0;
-    max-width: 80%;
-  }
-
-  @media (min-width: 50rem) {
-    max-width: 60%;
-  }
-
-  h1 {
-    margin: 1rem 0 0;
-    font-size: inherit;
-    font-weight: inherit;
-  }
-
-  p {
-    margin: 2rem 0 0;
-  }
-
-  a {
-    border-bottom: 1px solid;
-    padding-bottom: 1px;
-    text-decoration: none;
-    color: inherit;
-  }
-`
-
-const Content = styled.section`
-  margin: auto 0;
-`
-
-const Star = styled.aside`
-  margin: 0 auto;
-  padding-top: 1rem;
-  font-size: 50%;
-  color: #a1a1a1;
-
-  span {
-    cursor: pointer;
-  }
-`
+import Layout from "../components/layout"
 
 const IndexPage = () => (
-  <>
-    <GlobalStyles/>
-    <Main>
-      <Content>
-        <h1>Hi, I'm Mateusz and I'm a software developer.</h1>
-        <p>
-          I create web applications in JavaScript and Typescript. I&nbsp;mostly
-          use React. Sometimes I&nbsp;also write some Angular and server-side
-          Express code.
-        </p>
-        <p>
-          Check out my <a href="https://radiatingstar.com/">blog</a>,
-          {" "}<a href="https://github.com/mateuszkocz">code on GitHub</a>,
-          {" "}<a href="https://stackoverflow.com/users/1382409/mateusz-kocz">
-          a&nbsp;profile on StackOverflow</a>
-          {" "}and a <a href="https://www.linkedin.com/in/mateuszkocz/">CV on
-          LinkedIn</a>.
-        </p>
-      </Content>
-      <Star>
-        <span>★</span>
-      </Star>
-    </Main>
-  </>
+  <Layout>
+    <h1>Hi, I'm Mateusz and I'm a software developer.</h1>
+    <p>
+      I create web applications in JavaScript and Typescript. I&nbsp;mostly
+      use React. Sometimes I&nbsp;also write some Angular and server-side
+      Express code.
+    </p>
+    <p>
+      Check out my <a href="https://radiatingstar.com/">blog</a>,
+      {" "}<a href="https://github.com/mateuszkocz">code on GitHub</a>,
+      {" "}<a href="https://stackoverflow.com/users/1382409/mateusz-kocz">
+      a&nbsp;profile on StackOverflow</a>
+      {" "}and a <a href="https://www.linkedin.com/in/mateuszkocz/">CV on
+      LinkedIn</a>.
+    </p>
+  </Layout>
 )
 
 export default IndexPage
