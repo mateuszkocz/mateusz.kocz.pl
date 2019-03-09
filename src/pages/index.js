@@ -6,7 +6,7 @@ const IndexPage = () => (
   <Layout>
     <h1>Hi, I'm Mateusz and I'm a software developer.</h1>
     <p>
-      I create web applications in JavaScript and Typescript. I&nbsp;mostly
+      I create web applications in JavaScript and TypeScript. I&nbsp;mostly
       use React. Sometimes I&nbsp;also write some Angular and server-side
       Express code.
     </p>
