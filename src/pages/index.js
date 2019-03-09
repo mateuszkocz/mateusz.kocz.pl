@@ -2,8 +2,11 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
-  html, body, #___gatsby, #___gatsby > * {
-    height: 100%;
+  body, #___gatsby, #___gatsby > * {
+    min-height: 100vh;
+  }
+  
+  html, body {
     margin: 0;
     padding: 0;
     line-height: 1.4;
