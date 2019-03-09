@@ -38,9 +38,10 @@ const SubmitButton = styled.button`
   margin-bottom: 1.5rem;
   border: 1px solid currentColor;
   background: none;
-  font-size: inherit;
   padding: 1rem;
+  font-size: inherit;
   line-height: 1;
+  cursor: pointer;
 `
 
 const Contact = () => (
