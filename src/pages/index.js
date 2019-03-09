@@ -15,7 +15,7 @@ const IndexPage = () => (
       {" "}<a href="https://stackoverflow.com/users/1382409/mateusz-kocz">
       a&nbsp;profile on StackOverflow</a>
       {" "}and a <a href="https://www.linkedin.com/in/mateuszkocz/">CV on
-      LinkedIn</a>.
+      LinkedIn</a>. Or <a href="/contact">contact me</a>.
     </p>
   </Layout>
 )
