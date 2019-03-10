@@ -19,6 +19,15 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.4;
     font-family: 'Source Sans Pro', sans-serif;
   }
+
+  ::selection {
+    background: ${props => props.theme.fontColor};
+    color: #fff;
+  }
+  ::-moz-selection {
+    background: ${props => props.theme.fontColor};
+    color: #fff;
+  }
 `
 
 const Main = styled.main`
@@ -78,10 +87,10 @@ const Star = styled.aside`
 `
 
 const Layout = ({ children, title = "" }) => (
-  <>
-    <GlobalStyles/>
-    <SEO title={title}/>
-    <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <>
+      <GlobalStyles/>
+      <SEO title={title}/>
       <Main>
         <Content>
           {children}
@@ -90,8 +99,8 @@ const Layout = ({ children, title = "" }) => (
           <Link to="/">★</Link>
         </Star>
       </Main>
-    </ThemeProvider>
-  </>
+    </>
+  </ThemeProvider>
 )
 
 export default Layout
