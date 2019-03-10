@@ -47,15 +47,15 @@ const SubmitButton = styled.button`
   margin-right: 1rem;
   margin-bottom: 1.5rem;
   border: 1px solid currentColor;
-  background: none;
   padding: 1rem;
+  background: none;
   font-size: inherit;
   line-height: 1;
   cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `
 
-const isWindow = () => typeof window !== "undefined"
-const withWindow = (callback, defaultValue) => isWindow() ? callback(window) : defaultValue
+const isWindowAvailable = () => typeof window !== "undefined"
+const withWindow = (callback, defaultValue) => isWindowAvailable() ? callback(window) : defaultValue
 
 const getOnlineStatus = () => withWindow(window => window.navigator.onLine, true)
 const addWindowEvent = (event, listener) => withWindow(window => window.addEventListener(event, listener))
