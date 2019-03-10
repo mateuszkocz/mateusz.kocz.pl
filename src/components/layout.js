@@ -73,6 +73,7 @@ const Star = styled.aside`
 
   a {
     cursor: pointer;
+    border-bottom: none;
   }
 `
 

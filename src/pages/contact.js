@@ -50,6 +50,7 @@ const SubmitButton = styled.button`
   padding: 1rem;
   background: none;
   font-size: inherit;
+  color: inherit;
   line-height: 1;
   cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `
