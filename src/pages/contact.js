@@ -17,6 +17,10 @@ const inputsStyles = css`
   padding: .5rem 0;
   font-size: 1rem;
   
+  &:required {
+    box-shadow: none
+  }
+  
   &:invalid, &:focus {
     outline: none;
   }
