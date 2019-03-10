@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import Layout from "../components/layout"
 import { Link } from "gatsby"
@@ -16,6 +16,11 @@ const inputsStyles = css`
   border-bottom: 1px solid ${props => props.theme.dimmedColor};
   padding: .5rem 0;
   font-size: 1rem;
+  
+  ${props => props.disabled && css`
+    cursor: not-allowed;
+    opacity: .5;
+  `};
   
   &:required {
     box-shadow: none
@@ -46,44 +51,89 @@ const SubmitButton = styled.button`
   padding: 1rem;
   font-size: inherit;
   line-height: 1;
-  cursor: pointer;
+  cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `
 
-const Contact = () => (
-  <Layout title="Contact">
-    <h1>Contact</h1>
-    <form
-      name="contact-form"
-      method="post"
-      action="/success"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="bot-field"/>
-      <p>
-        <Label>
-          <span>Your name</span>
-          <Input type="text" name="name" required placeholder="Who are you?" autoFocus/>
-        </Label>
-      </p>
-      <p>
-        <Label>
-          <span>Your email</span>
-          <Input type="email" name="email" required placeholder="How to reach you?"/>
-        </Label>
-      </p>
-      <p>
-        <Label>
-          <span>Message</span>
-          <TextArea name="message" required placeholder="What's up?" rows="5"/>
-        </Label>
-      </p>
-      <p>
-        <SubmitButton type="submit">Send</SubmitButton>
-        <Link to="/">Back home</Link>.
-      </p>
-    </form>
-  </Layout>
-)
+const isWindow = () => typeof window !== "undefined"
+const withWindow = (callback, defaultValue) => isWindow() ? callback(window) : defaultValue
+
+const getOnlineStatus = () => withWindow(window => window.navigator.onLine, true)
+const addWindowEvent = (event, listener) => withWindow(window => window.addEventListener(event, listener))
+const removeWindowEvent = (event, listener) => withWindow(window => window.removeEventListener(event, listener))
+
+const useOnline = callback =>
+  useEffect(() => {
+    const listener = () => callback(getOnlineStatus())
+    addWindowEvent("online", listener)
+    addWindowEvent("offline", listener)
+    return () => {
+      removeWindowEvent("online", listener)
+      removeWindowEvent("offline", listener)
+    }
+  }, [callback])
+
+const Contact = () => {
+  const [online, setOnlineStatus] = useState(getOnlineStatus())
+  useOnline(setOnlineStatus)
+  return (
+    <Layout title="Contact">
+      <h1>Contact</h1>
+      {
+        !online &&
+        <p>You're offline so the form won't work. Check your network.</p>
+      }
+      <form
+        name="contact-form"
+        method="post"
+        action="/success"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field"/>
+        <p>
+          <Label>
+            <span>Your name</span>
+            <Input
+              type="text"
+              name="name"
+              required
+              placeholder="Who are you?"
+              autoFocus
+              disabled={!online}
+            />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            <span>Your email</span>
+            <Input
+              type="email"
+              name="email"
+              required
+              placeholder="How to reach you?"
+              disabled={!online}
+            />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            <span>Message</span>
+            <TextArea
+              name="message"
+              required
+              placeholder="What's up?"
+              rows="5"
+              disabled={!online}
+            />
+          </Label>
+        </p>
+        <p>
+          <SubmitButton type="submit " disabled={!online}>Send</SubmitButton>
+          <Link to="/">Back home</Link>.
+        </p>
+      </form>
+    </Layout>
+  )
+}
 
 export default Contact
