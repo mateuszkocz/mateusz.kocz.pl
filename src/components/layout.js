@@ -1,10 +1,11 @@
 import React from "react"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import { Link } from "gatsby"
 import SEO from "./seo"
 
 const theme = {
-  fontColor: '#444',
-  dimmedColor: '#a1a1a1',
+  fontColor: "#444",
+  dimmedColor: "#a1a1a1",
 }
 
 const GlobalStyles = createGlobalStyle`
@@ -70,12 +71,12 @@ const Star = styled.aside`
   font-size: 50%;
   color: ${props => props.theme.dimmedColor};
 
-  span {
+  a {
     cursor: pointer;
   }
 `
 
-const Layout = ({children, title = ''}) => (
+const Layout = ({ children, title = "" }) => (
   <>
     <GlobalStyles/>
     <SEO title={title}/>
@@ -85,7 +86,7 @@ const Layout = ({children, title = ''}) => (
           {children}
         </Content>
         <Star>
-          <span>★</span>
+          <Link to="/">★</Link>
         </Star>
       </Main>
     </ThemeProvider>
