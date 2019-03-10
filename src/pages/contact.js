@@ -14,6 +14,7 @@ const inputsStyles = css`
   border: none;
   border-bottom: 1px solid ${props => props.theme.dimmedColor};
   padding: .5rem 0;
+  font-family: inherit;
   font-size: 1rem;
   
   ${props => props.disabled && css`
