@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Layout from "../components/layout"
 
 const IndexPage = () => (
@@ -12,12 +12,15 @@ const IndexPage = () => (
       Express code.
     </p>
     <p>
-      Check out my <OutboundLink href="https://radiatingstar.com/">blog</OutboundLink>,
-      {" "}<OutboundLink href="https://github.com/mateuszkocz">code on GitHub</OutboundLink>,
-      {" "}<OutboundLink href="https://stackoverflow.com/users/1382409/mateusz-kocz">
-      a&nbsp;profile on StackOverflow</OutboundLink>
-      {" "}and a <OutboundLink href="https://www.linkedin.com/in/mateuszkocz/">CV on
-      LinkedIn</OutboundLink>. Or <Link to="/contact">contact me</Link>.
+      Check out my <OutboundLink
+      href="https://radiatingstar.com/">blog</OutboundLink>,
+      {" "}<OutboundLink href="https://github.com/mateuszkocz">code on
+      GitHub</OutboundLink>, a&nbsp;<OutboundLink
+      href="https://stackoverflow.com/users/1382409/mateusz-kocz">
+      profile on StackOverflow</OutboundLink>
+      {" "}and a&nbsp;<OutboundLink
+      href="https://www.linkedin.com/in/mateuszkocz/">CV
+      on LinkedIn</OutboundLink>. Or <Link to="/contact">contact me</Link>.
     </p>
   </Layout>
 )
