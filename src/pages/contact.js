@@ -4,9 +4,8 @@ import Layout from "../components/layout"
 import { Link } from "gatsby"
 
 const Label = styled.label`
-  span {
-    display: block;
-  }
+  margin: 2rem 0 0;
+  display: block;
 `
 
 const inputsStyles = css`
@@ -90,43 +89,37 @@ const Contact = () => {
         data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="bot-field"/>
-        <p>
-          <Label>
-            <span>Your name</span>
-            <Input
-              type="text"
-              name="name"
-              required
-              placeholder="Who are you?"
-              autoFocus
-              disabled={!online}
-            />
-          </Label>
-        </p>
-        <p>
-          <Label>
-            <span>Your email</span>
-            <Input
-              type="email"
-              name="email"
-              required
-              placeholder="How to reach you?"
-              disabled={!online}
-            />
-          </Label>
-        </p>
-        <p>
-          <Label>
-            <span>Message</span>
-            <TextArea
-              name="message"
-              required
-              placeholder="What's up?"
-              rows="5"
-              disabled={!online}
-            />
-          </Label>
-        </p>
+        <Label>
+          <span>Your name</span>
+          <Input
+            type="text"
+            name="name"
+            required
+            placeholder="Who are you?"
+            autoFocus
+            disabled={!online}
+          />
+        </Label>
+        <Label>
+          <span>Your email</span>
+          <Input
+            type="email"
+            name="email"
+            required
+            placeholder="How to reach you?"
+            disabled={!online}
+          />
+        </Label>
+        <Label>
+          <span>Message</span>
+          <TextArea
+            name="message"
+            required
+            placeholder="What's up?"
+            rows="5"
+            disabled={!online}
+          />
+        </Label>
         <p>
           <SubmitButton type="submit " disabled={!online}>Send</SubmitButton>
           <Link to="/">Back home</Link>.
