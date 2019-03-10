@@ -13,7 +13,7 @@ const inputsStyles = css`
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1px solid #a1a1a1;
+  border-bottom: 1px solid ${props => props.theme.dimmedColor};
   padding: .5rem 0;
   font-size: 1rem;
   
@@ -26,7 +26,7 @@ const inputsStyles = css`
   }
   
   &:focus {
-    border-bottom-color: black;
+    border-bottom-color: currentColor;
   }
 `
 

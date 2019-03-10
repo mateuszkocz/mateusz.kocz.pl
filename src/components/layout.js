@@ -1,6 +1,11 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import SEO from "./seo"
+
+const theme = {
+  fontColor: '#444',
+  dimmedColor: '#a1a1a1',
+}
 
 const GlobalStyles = createGlobalStyle`
   body, #___gatsby, #___gatsby > * {
@@ -26,7 +31,7 @@ const Main = styled.main`
   justify-content: center;
 
   font-size: 2rem;
-  color: #444;
+  color: ${props => props.theme.fontColor};
   
   @media (min-width: 34rem) {
     padding: 1rem 0;
@@ -63,7 +68,7 @@ const Star = styled.aside`
   margin: 0 auto;
   padding-top: 1rem;
   font-size: 50%;
-  color: #a1a1a1;
+  color: ${props => props.theme.dimmedColor};
 
   span {
     cursor: pointer;
@@ -74,14 +79,16 @@ const Layout = ({children, title = ''}) => (
   <>
     <GlobalStyles/>
     <SEO title={title}/>
-    <Main>
-      <Content>
-        {children}
-      </Content>
-      <Star>
-        <span>★</span>
-      </Star>
-    </Main>
+    <ThemeProvider theme={theme}>
+      <Main>
+        <Content>
+          {children}
+        </Content>
+        <Star>
+          <span>★</span>
+        </Star>
+      </Main>
+    </ThemeProvider>
   </>
 )
 
