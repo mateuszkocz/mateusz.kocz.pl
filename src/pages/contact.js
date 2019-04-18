@@ -73,29 +73,35 @@ const useOnline = callback =>
     }
   }, [callback])
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+const encode = (data) =>
+  Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+
+const getValuesFromForm = form =>
+  Array
+    .from(form)
+    .filter(({ name, value }) => name && value)
+    .reduce((acc, { name, value }) => ({ ...acc, [name]: value, }), {})
+
+const handleSubmit = e => {
+  e.preventDefault()
+  const form = e.target
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": form.getAttribute("name"),
+      ...getValuesFromForm(form),
+    }),
+  })
+    .then(() => navigate(form.getAttribute("action")))
+    .catch(error => alert(error))
 }
 
 const Contact = () => {
   const [online, setOnlineStatus] = useState(getOnlineStatus())
   useOnline(setOnlineStatus)
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => alert(error))
-  }
 
   return (
     <Layout title="Contact">
@@ -106,7 +112,7 @@ const Contact = () => {
       }
       <form
         name="contact-form"
-        method="post"
+        method="POST"
         action="/success?no-cache=1"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
