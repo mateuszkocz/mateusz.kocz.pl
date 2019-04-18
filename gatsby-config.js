@@ -28,6 +28,7 @@ module.exports = {
         // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    "gatsby-plugin-offline",
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`, // make sure to put last in the array
   ],
 }
