@@ -86,7 +86,7 @@ const Contact = () => {
       <form
         name="contact-form"
         method="post"
-        action="/success"
+        action="/success?no-cache=1"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
