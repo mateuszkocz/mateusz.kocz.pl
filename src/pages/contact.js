@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import Layout from "../components/layout"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 const Label = styled.label`
   margin: 2rem 0 0;
@@ -73,9 +73,30 @@ const useOnline = callback =>
     }
   }, [callback])
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
 const Contact = () => {
   const [online, setOnlineStatus] = useState(getOnlineStatus())
   useOnline(setOnlineStatus)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+      }),
+    })
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert(error))
+  }
+
   return (
     <Layout title="Contact">
       <h1>Contact</h1>
@@ -89,6 +110,7 @@ const Contact = () => {
         action="/success?no-cache=1"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
       >
         <input type="hidden" name="bot-field"/>
         <Label>
