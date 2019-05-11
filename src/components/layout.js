@@ -28,12 +28,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight: lighter;
   }
 
-  ::selection {
-    background: ${props => props.theme.fontColor};
-    color: #fff;
-  }
-  ::-moz-selection {
-    background: ${props => props.theme.fontColor};
+  ::selection, ::-moz-selection {
+    background: aliceblue;
     color: #fff;
   }
 `
