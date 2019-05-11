@@ -1,7 +1,12 @@
 import React from "react"
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import styled, {
+  createGlobalStyle,
+  css,
+  ThemeProvider,
+} from "styled-components"
 import { Link } from "gatsby"
 import SEO from "./seo"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const theme = {
   fontColor: "#444",
@@ -82,14 +87,49 @@ const Content = styled.section`
 `
 
 const Star = styled.aside`
+  position: relative;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding: 1rem 1rem 0;
   font-size: 50%;
   color: ${props => props.theme.startColor};
 
   a {
     cursor: pointer;
     border-bottom: none;
+  }
+`
+
+const Omake = styled.aside`
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  color: ${props => props.theme.dimmedColor};
+  
+  ${props => props.left && css`
+    right: 100%;
+    text-align: right;
+  `};
+  ${props => props.right && css`
+    left: 100%;
+  `};
+  
+  @media (hover: hover) {
+    opacity: 0;
+    transition: all 250ms;
+    ${Star}:hover & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    ${props => props.left && css`
+      transform: translateX(20px);
+    `}
+    ${props => props.right && css`
+      transform: translateX(-20px);
+    `}
+  }
+  
+  a {
+    border-bottom: 1px solid currentColor;
   }
 `
 
@@ -103,7 +143,15 @@ const Layout = ({ children, title = "" }) => (
           {children}
         </Content>
         <Star>
+          <Omake left>
+            <OutboundLink href="https://github.com/mateuszkocz/mateusz.kocz.pl">
+              Source on GitHub
+            </OutboundLink>
+          </Omake>
           <Link to="/">★</Link>
+          <Omake right>
+            Warsaw, {new Date().getFullYear()}
+          </Omake>
         </Star>
       </Main>
     </>
