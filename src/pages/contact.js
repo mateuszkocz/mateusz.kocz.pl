@@ -15,7 +15,9 @@ const inputsStyles = css`
   border-bottom: 1px solid ${props => props.theme.dimmedColor};
   padding: .5rem 0;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  color: ${props => props.theme.fontColor}; 
+  -webkit-text-fill-color: ${props => props.theme.fontColor};
   
   ${props => props.disabled && css`
     cursor: not-allowed;
@@ -33,6 +35,13 @@ const inputsStyles = css`
   &:focus {
     border-bottom-color: currentColor;
   }
+
+  &::placeholder {
+    font-weight: lighter;
+    // Make sure the content's gradient doesn't make placeholders invisible.
+    color: ${props => props.theme.dimmedColor}; 
+    -webkit-text-fill-color: ${props => props.theme.dimmedColor};
+  }
 `
 
 const Input = styled.input`
@@ -46,11 +55,13 @@ const TextArea = styled.textarea`
 const SubmitButton = styled.button`
   margin-right: 1rem;
   margin-bottom: 1.5rem;
-  border: 1px solid currentColor;
+  border: none;
   padding: 1rem;
-  background: none;
+  border-radius: 3px;
+  background: ${props => props.theme.startColor};
+  -webkit-text-fill-color: white;
+  font-weight: lighter;
   font-size: inherit;
-  color: inherit;
   line-height: 1;
   cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `
@@ -82,7 +93,7 @@ const getValuesFromForm = form =>
   Array
     .from(form)
     .filter(({ name, value }) => name && value)
-    .reduce((acc, { name, value }) => ({ ...acc, [name]: value, }), {})
+    .reduce((acc, { name, value }) => ({ ...acc, [name]: value }), {})
 
 const handleSubmit = e => {
   e.preventDefault()

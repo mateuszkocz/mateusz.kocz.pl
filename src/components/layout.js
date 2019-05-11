@@ -6,6 +6,8 @@ import SEO from "./seo"
 const theme = {
   fontColor: "#444",
   dimmedColor: "#a1a1a1",
+  startColor: "#268bd2",
+  endColor: "#134669",
 }
 
 const GlobalStyles = createGlobalStyle`
@@ -18,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     line-height: 1.4;
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
   }
 
   ::selection {
@@ -72,13 +75,17 @@ const Main = styled.main`
 
 const Content = styled.section`
   margin: auto 0;
+  color: ${props => props.theme.startColor};
+  background: -webkit-linear-gradient(top, ${props => props.theme.startColor}, ${props => props.theme.endColor});
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const Star = styled.aside`
   margin: 0 auto;
   padding-top: 1rem;
   font-size: 50%;
-  color: ${props => props.theme.dimmedColor};
+  color: ${props => props.theme.startColor};
 
   a {
     cursor: pointer;
