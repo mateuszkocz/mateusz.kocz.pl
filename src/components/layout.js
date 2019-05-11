@@ -81,9 +81,11 @@ const Main = styled.main`
 const Content = styled.section`
   margin: auto 0;
   color: ${props => props.theme.startColor};
-  background: -webkit-linear-gradient(top, ${props => props.theme.startColor}, ${props => props.theme.endColor});
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @media not print {
+    background: -webkit-linear-gradient(top, ${props => props.theme.startColor}, ${props => props.theme.endColor});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `
 
 const Star = styled.aside`
