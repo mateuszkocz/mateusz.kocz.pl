@@ -27,7 +27,7 @@ const IndexPage = () => (
         {" "}<OutboundLink href="https://github.com/mateuszkocz">code on
         GitHub</OutboundLink>, a&nbsp;<OutboundLink
         href="https://stackoverflow.com/users/1382409/mateusz-kocz">
-        profile on StackOverflow</OutboundLink>
+        profile on Stack Overflow</OutboundLink>
         {" "}and a&nbsp;<OutboundLink
         href="https://www.linkedin.com/in/mateuszkocz/">CV
         on LinkedIn</OutboundLink>. Or <Link to="/contact">contact me</Link>.
