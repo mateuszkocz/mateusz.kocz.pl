@@ -16,6 +16,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `today-i-learned`,
+        path: `${__dirname}/src/today-i-learned/`,
+      },
+    },
+    `gatsby-plugin-mdx`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Mateusz Kocz ★ Software Developer`,
