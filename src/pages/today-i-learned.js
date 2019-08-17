@@ -1,6 +1,33 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
+import styled from "styled-components"
+
+const PostHeading = styled.h3`
+  margin: 0;
+  font-weight: inherit;
+  display: inline;
+`
+
+const PostsList = styled.ul`
+  padding-left: 0;
+`
+
+const PostItem = styled.li`
+  margin: 1em 0;
+  font-size: 1.2rem;
+`
+
+const CategoryLink = styled(Link)`
+  transform: rotate(90deg);
+  margin-left: 1rem;
+  font-size: 1rem;
+  && {
+    color: ${({ theme }) => theme.dimmedColor};
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+`
 
 const TodayILearned = ({
   data: {
@@ -10,9 +37,8 @@ const TodayILearned = ({
 }) => {
   return (
     <Layout>
-      <h1>Today I Learned</h1>
-      {category && <h2>{category}</h2>}
-      <ul>
+      <h1>Today I Learned {category && <span>in #{category}</span>}</h1>
+      <PostsList>
         {tilPosts.map(
           ({
             node: {
@@ -21,15 +47,15 @@ const TodayILearned = ({
               fields: { path, categoryPath },
             },
           }) => (
-            <li key={id}>
-              <Link to={path}>
-                <h3>{title}</h3>
-              </Link>
-              <Link to={categoryPath}>{category}</Link>
-            </li>
+            <PostItem key={id}>
+              <PostHeading>
+                <Link to={path}>{title}</Link>
+              </PostHeading>
+              <CategoryLink to={categoryPath}>#{category}</CategoryLink>
+            </PostItem>
           )
         )}
-      </ul>
+      </PostsList>
     </Layout>
   )
 }
