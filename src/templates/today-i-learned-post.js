@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -32,7 +32,16 @@ const Article = styled.article`
     margin-left: -1em;
     padding-right: 1em;
     padding-left: 0.75em;
-    border-left: 0.25em solid ${({theme: {startColor}}) => startColor};
+    border-left: 0.25em solid ${({ theme: { startColor } }) => startColor};
+  }
+`
+
+const HeadingLink = styled(Link)`
+  && {
+    border-bottom-color: transparent;
+    &:hover {
+      border-bottom-color: currentColor;
+    }
   }
 `
 
@@ -43,9 +52,12 @@ const TodayILearnedPost = ({
       body,
     },
   },
+  path,
 }) => (
   <Layout swag={false}>
-    <h1>{title}</h1>
+    <h1>
+      <HeadingLink to={path}>{title}</HeadingLink>
+    </h1>
     <Article>
       <MDXRenderer>{body}</MDXRenderer>
     </Article>
