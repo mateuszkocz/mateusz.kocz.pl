@@ -41,13 +41,13 @@ const TodayILearned = ({
   data: {
     tilPosts: { edges: tilPosts },
   },
-  pageContext: { category },
+  pageContext: { category: pageCategory },
 }) => {
   return (
-    <Layout title={"Today I Learned" + category ? " in " + category : ""}>
-      <h1>Today I Learned {category && <span>in #{category}</span>}</h1>
+    <Layout title={"Today I Learned" + pageCategory ? " in " + pageCategory : ""}>
+      <h1>Today I Learned {pageCategory && <span>in #{pageCategory}</span>}</h1>
       <NavLinks>
-        {category && <span><Link to="/today-i-learned">Show all</Link> or{" "}</span>}
+        {pageCategory && <span><Link to="/today-i-learned">Show all</Link> or{" "}</span>}
         <Link to="/">Back home</Link>
       </NavLinks>
       <PostsList>
@@ -61,7 +61,7 @@ const TodayILearned = ({
           }) => (
             <PostItem key={id}>
               <PostHeading>
-                <Link to={path}>{title}</Link>
+                <Link to={path} state={{category: pageCategory}}>{title}</Link>
               </PostHeading>
               <CategoryLink to={categoryPath}>#{category}</CategoryLink>
             </PostItem>
