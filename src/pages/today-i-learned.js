@@ -76,6 +76,7 @@ export const query = graphql`
   query TodayILearnedPosts($categoryRegex: String = "//") {
     tilPosts: allMdx(
       filter: { frontmatter: { category: { regex: $categoryRegex } } }
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {
