@@ -147,7 +147,7 @@ const Omake = styled.aside`
   }
 `
 
-const Layout = ({ children, title = "", swag = true }) => (
+const Layout = ({ children, title = "", swag = false }) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyles />

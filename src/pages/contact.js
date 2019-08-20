@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
-import Layout from "../components/layout"
 import { Link, navigate } from "gatsby"
+import SwaggedLayout from "../components/swagged-layout"
 
 const Label = styled.label`
   margin: 2rem 0 0;
@@ -115,7 +115,7 @@ const Contact = () => {
   useOnline(setOnlineStatus)
 
   return (
-    <Layout title="Contact">
+    <SwaggedLayout title="Contact">
       <h1>Contact</h1>
       {
         !online &&
@@ -166,7 +166,7 @@ const Contact = () => {
           <Link to="/">Back home</Link>.
         </p>
       </form>
-    </Layout>
+    </SwaggedLayout>
   )
 }
 

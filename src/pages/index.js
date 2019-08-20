@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import Layout from "../components/layout"
+import SwaggedLayout from "../components/swagged-layout"
 
 // Regarding those <span>s: Safari can't properly display the text in block
 // elements with -webkit-text-fill-color. Only inline content works.
 
 const IndexPage = () => (
-  <Layout>
+  <SwaggedLayout>
     <h1>
       <span>
         Hi, I'm Mateusz and I'm a software developer.
@@ -33,7 +33,7 @@ const IndexPage = () => (
         on LinkedIn</OutboundLink>. Or <Link to="/contact">contact me</Link>.
       </span>
     </p>
-  </Layout>
+  </SwaggedLayout>
 )
 
 export default IndexPage
