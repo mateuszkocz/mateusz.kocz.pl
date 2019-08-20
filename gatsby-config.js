@@ -22,7 +22,22 @@ module.exports = {
         path: `${__dirname}/src/today-i-learned/`,
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: {
+                ts: "typescript",
+                js: "javascript",
+              },
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

@@ -6,3 +6,4 @@
 
 // You can delete this file if you're not using it
 import 'typeface-source-sans-pro'
+import 'prismjs/themes/prism-solarizedlight.css'
