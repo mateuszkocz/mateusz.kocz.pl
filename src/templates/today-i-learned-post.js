@@ -57,18 +57,21 @@ const TodayILearnedPost = ({
   location: {
     state: { category },
   },
-}) => (
-  <Layout title={title}>
-    <HeaderWithBackLink to={"/today-i-learned" + (category ? `/${category}` : "")}>
-      <h1>
-        <HeadingLink to={path}>{title}</HeadingLink>
-      </h1>
-    </HeaderWithBackLink>
-    <Article>
-      <MDXRenderer>{body}</MDXRenderer>
-    </Article>
-  </Layout>
-)
+}) => {
+  const backLink = "/today-i-learned" + (category ? `/${category}` : "")
+  return (
+    <Layout title={title}>
+      <HeaderWithBackLink to={backLink}>
+        <h1>
+          <HeadingLink to={path}>{title}</HeadingLink>
+        </h1>
+      </HeaderWithBackLink>
+      <Article>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Article>
+    </Layout>
+  )
+}
 
 export default TodayILearnedPost
 

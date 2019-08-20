@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
+import HeaderWithBackLink from "../components/header-with-back-link"
 
 const PostHeading = styled.h3`
   margin: 0;
@@ -30,26 +31,21 @@ const CategoryLink = styled(Link)`
   }
 `
 
-const NavLinks = styled.nav`
-  font-size: 1rem;
-  && {
-    margin-top: 0;
-  }
-`
-
 const TodayILearned = ({
   data: {
     tilPosts: { edges: tilPosts },
   },
   pageContext: { category: pageCategory },
 }) => {
+  const title = "Today I Learned" + pageCategory ? " in " + pageCategory : ""
+  const backLink = pageCategory ? "/today-i-learned" : "/"
   return (
-    <Layout title={"Today I Learned" + pageCategory ? " in " + pageCategory : ""}>
-      <h1>Today I Learned {pageCategory && <span>in #{pageCategory}</span>}</h1>
-      <NavLinks>
-        {pageCategory && <span><Link to="/today-i-learned">Show all</Link> or{" "}</span>}
-        <Link to="/">Back home</Link>
-      </NavLinks>
+    <Layout title={title}>
+      <HeaderWithBackLink to={backLink}>
+        <h1>
+          Today I Learned {pageCategory && <span>in #{pageCategory}</span>}
+        </h1>
+      </HeaderWithBackLink>
       <PostsList>
         {tilPosts.map(
           ({
@@ -61,7 +57,9 @@ const TodayILearned = ({
           }) => (
             <PostItem key={id}>
               <PostHeading>
-                <Link to={path} state={{category: pageCategory}}>{title}</Link>
+                <Link to={path} state={{ category: pageCategory }}>
+                  {title}
+                </Link>
               </PostHeading>
               <CategoryLink to={categoryPath}>#{category}</CategoryLink>
             </PostItem>
