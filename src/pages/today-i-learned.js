@@ -11,6 +11,7 @@ const PostHeading = styled.h3`
 
 const PostsList = styled.ul`
   padding-left: 0;
+  margin-top: 2rem;
 `
 
 const PostItem = styled.li`
@@ -29,6 +30,13 @@ const CategoryLink = styled(Link)`
   }
 `
 
+const NavLinks = styled.nav`
+  font-size: 1rem;
+  && {
+    margin-top: 0;
+  }
+`
+
 const TodayILearned = ({
   data: {
     tilPosts: { edges: tilPosts },
@@ -38,6 +46,10 @@ const TodayILearned = ({
   return (
     <Layout>
       <h1>Today I Learned {category && <span>in #{category}</span>}</h1>
+      <NavLinks>
+        {category && <span><Link to="/today-i-learned">Show all</Link> or{" "}</span>}
+        <Link to="/">Back home</Link>
+      </NavLinks>
       <PostsList>
         {tilPosts.map(
           ({
