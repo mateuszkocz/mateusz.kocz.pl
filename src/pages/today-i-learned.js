@@ -44,7 +44,7 @@ const TodayILearned = ({
   pageContext: { category },
 }) => {
   return (
-    <Layout>
+    <Layout swag={false}>
       <h1>Today I Learned {category && <span>in #{category}</span>}</h1>
       <NavLinks>
         {category && <span><Link to="/today-i-learned">Show all</Link> or{" "}</span>}

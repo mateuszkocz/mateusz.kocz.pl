@@ -46,7 +46,7 @@ const Main = styled.main`
 
   font-size: 2rem;
   color: ${props => props.theme.fontColor};
-  
+
   @media (min-width: 34rem) {
     padding: 1rem 0;
     max-width: 80%;
@@ -74,14 +74,22 @@ const Main = styled.main`
   }
 `
 
-const Content = styled.section`
-  margin: auto 0;
-  color: ${props => props.theme.startColor};
+const swaggedText = css`
   @media not print {
-    background: -webkit-linear-gradient(top, ${props => props.theme.startColor}, ${props => props.theme.endColor});
+    background: -webkit-linear-gradient(
+      top,
+      ${props => props.theme.startColor},
+      ${props => props.theme.endColor}
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+`
+
+const Content = styled.section`
+  margin: auto 0;
+  color: ${props => props.theme.startColor};
+  ${({ swag }) => swag && swaggedText}
 `
 
 const Star = styled.aside`
@@ -102,15 +110,19 @@ const Omake = styled.aside`
   bottom: 0;
   width: 200px;
   color: ${props => props.theme.dimmedColor};
-  
-  ${props => props.left && css`
-    right: 100%;
-    text-align: right;
-  `};
-  ${props => props.right && css`
-    left: 100%;
-  `};
-  
+
+  ${props =>
+    props.left &&
+    css`
+      right: 100%;
+      text-align: right;
+    `};
+  ${props =>
+    props.right &&
+    css`
+      left: 100%;
+    `};
+
   @media (hover: hover) {
     opacity: 0;
     transition: all 250ms;
@@ -118,28 +130,30 @@ const Omake = styled.aside`
       opacity: 1;
       transform: translateX(0);
     }
-    ${props => props.left && css`
-      transform: translateX(20px);
-    `}
-    ${props => props.right && css`
-      transform: translateX(-20px);
-    `}
+    ${props =>
+      props.left &&
+      css`
+        transform: translateX(20px);
+      `}
+    ${props =>
+      props.right &&
+      css`
+        transform: translateX(-20px);
+      `}
   }
-  
+
   a {
     border-bottom: 1px solid currentColor;
   }
 `
 
-const Layout = ({ children, title = "" }) => (
+const Layout = ({ children, title = "", swag = true }) => (
   <ThemeProvider theme={theme}>
     <>
-      <GlobalStyles/>
-      <SEO title={title}/>
+      <GlobalStyles />
+      <SEO title={title} />
       <Main>
-        <Content>
-          {children}
-        </Content>
+        <Content swag={swag}>{children}</Content>
         <Star>
           <Omake left>
             <OutboundLink href="https://github.com/mateuszkocz/mateusz.kocz.pl">
@@ -147,9 +161,7 @@ const Layout = ({ children, title = "" }) => (
             </OutboundLink>
           </Omake>
           <Link to="/">★</Link>
-          <Omake right>
-            Warsaw, {new Date().getFullYear()}
-          </Omake>
+          <Omake right>Warsaw, {new Date().getFullYear()}</Omake>
         </Star>
       </Main>
     </>
