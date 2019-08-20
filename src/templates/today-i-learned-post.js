@@ -54,7 +54,7 @@ const TodayILearnedPost = ({
   },
   path,
 }) => (
-  <Layout swag={false}>
+  <Layout title={title}>
     <h1>
       <HeadingLink to={path}>{title}</HeadingLink>
     </h1>
