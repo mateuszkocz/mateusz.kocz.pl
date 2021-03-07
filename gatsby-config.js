@@ -15,8 +15,6 @@ module.exports = {
         respectDNT: true,
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     // TODO: bring it back when you have an icon.
     // {
     //   resolve: `gatsby-plugin-manifest`,
