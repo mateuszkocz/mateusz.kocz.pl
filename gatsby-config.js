@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Mateusz Kocz ★ Software Developer`,
-    description: `I create web applications in JavaScript and Typescript. I mostly use React. Sometimes I also write some Angular and server-side Express code.`,
+    description: `My personal website.`,
     author: `@mateuszkocz`,
   },
   plugins: [
@@ -15,45 +15,21 @@ module.exports = {
         respectDNT: true,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `today-i-learned`,
-        path: `${__dirname}/src/today-i-learned/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              aliases: {
-                ts: "typescript",
-                js: "javascript",
-              },
-            },
-          },
-        ],
-      },
-    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Mateusz Kocz ★ Software Developer`,
-        short_name: `Mateusz Kocz`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#fff`,
-        display: `minimal-ui`,
-        // TODO
-        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
+    // TODO: bring it back when you have an icon.
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Mateusz Kocz ★ Software Developer`,
+    //     short_name: `Mateusz Kocz`,
+    //     start_url: `/`,
+    //     background_color: `#fff`,
+    //     theme_color: `#fff`,
+    //     display: `minimal-ui`,
+    //     icon: `src/images/gatsby-icon.png`,
+    //   },
+    // },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`, // make sure to put last in the array
   ],
 }
