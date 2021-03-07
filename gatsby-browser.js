@@ -5,4 +5,5 @@
  */
 
 // You can delete this file if you're not using it
-import 'typeface-source-sans-pro'
+import "typeface-source-sans-pro"
+import "./src/styles/global.css"
