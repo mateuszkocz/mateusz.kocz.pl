@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import SwaggedLayout from "../components/swagged-layout"
+import Layout from "../components/layout"
 
 const NotFoundPage = () => (
-  <SwaggedLayout title="404">
-    <h1>Not Found.</h1>
+  <Layout title="404">
+    <h1 className="mt-4 mb-0">Not Found.</h1>
     <p>
       Yes, it's 404.
     </p>
@@ -12,7 +12,7 @@ const NotFoundPage = () => (
       It's not what you're looking for.
       <Link to="/">Go to the home page</Link>.
     </p>
-  </SwaggedLayout>
+  </Layout>
 )
 
 export default NotFoundPage

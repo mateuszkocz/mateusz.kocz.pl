@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TODO: move all those custom styles into Tailwind. */
+
+/* TODO: Remove if not needed. */
+/*body, #___gatsby, #___gatsby > * {*/
+/*  min-height: 100vh;*/
+/*}*/
+
+html,
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: lighter;
+}
+
+/* FIXME: Doesn't work */
+::selection,
+::-moz-selection {
+  background: aliceblue;
+  color: #fff;
+}
+
+p {
+  @apply mt-8 mx-0 mb-0;
+}
+
+a {
+  border-bottom: 1px solid;
+  padding-bottom: 1px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.content {
+  color: #268bd2;
+  background: -webkit-linear-gradient(top, #268bd2, #134669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.star {
+  color: #268bd2;
+}
+
+.star a {
+  @apply border-none;
+}
+
+.omake {
+  @apply absolute bottom-0 w-48;
+  color: #a1a1a1;
+}
+
+@media (hover: hover) {
+  .omake {
+    opacity: 0;
+    transition: all 250ms;
+  }
+  .star:hover .omake {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .star:hover .omake-left {
+    transform: translateX(20px);
+  }
+  .star:hover .omake-right {
+    transform: translateX(-20px);
+  }
+}
