@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Layout from "../components/layout"
 
@@ -30,7 +29,7 @@ const IndexPage = () => (
         profile on Stack Overflow</OutboundLink>
         {" "}and a&nbsp;<OutboundLink
         href="https://www.linkedin.com/in/mateuszkocz/">CV
-        on LinkedIn</OutboundLink>. Or <Link to="/contact">contact me</Link>.
+        on LinkedIn</OutboundLink>.
       </span>
     </p>
   </Layout>
