@@ -6,14 +6,10 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 const Layout = ({ children, title = "" }) => (
   <>
     <SEO title={title} />
-    {/* TODO: text was #444 instead of gray-800. */}
-    {/* TODO: `sm` needs max-width 80%. */}
-    {/* TODO: `md` needs max-width 60%. */}
-    <main className="my-0 mx-auto min-h-screen py-4 px-12 flex flex-col justify-center text-4xl text-gray-800 sm:py-4 sm:px-0">
-      <section className="content my-auto mx-0">{children}</section>
-      {/* TODO: text size should be 50%. */}
-      <aside className="star relative my-0 mx-auto pt-4 px-4 pb-0 text-xs">
-        <aside className="omake omake-right right-full text-right">
+    <main className="my-0 mx-auto min-h-screen sm:py-4 sm:px-0 md:px-12 py-4 px-12 flex flex-col justify-center align-middle">
+      <section className="content my-auto mx-auto text-4xl leading-snug max-w-prose">{children}</section>
+      <aside className="star relative my-0 mx-auto pt-4 px-4 pb-0 text-sm">
+        <aside className="absolute bottom-0 w-48 text-gray-400 right-full text-right">
           <OutboundLink href="https://github.com/mateuszkocz/mateusz.kocz.pl">
             Source on GitHub
           </OutboundLink>
@@ -21,7 +17,7 @@ const Layout = ({ children, title = "" }) => (
         <Link to="/" className="border-b border-current">
           ★
         </Link>
-        <aside className="omake omake-left left-full">
+        <aside className="absolute bottom-0 w-48 text-gray-400 left-full">
           Warsaw, {new Date().getFullYear()}
         </aside>
       </aside>
