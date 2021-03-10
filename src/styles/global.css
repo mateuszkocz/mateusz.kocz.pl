@@ -22,24 +22,12 @@ a {
   @apply border-b border-current;
 }
 
-.content {
-  color: #268bd2;
-}
-
 @media (prefers-color-scheme: light) {
   .content {
     background: -webkit-linear-gradient(bottom, #268bd2, #134669);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-}
-
-.star {
-  color: #268bd2;
-}
-
-.star a {
-  @apply border-none;
 }
 
 /* FIXME: Doesn't work */
