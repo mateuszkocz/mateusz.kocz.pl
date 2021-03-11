@@ -1,6 +1,8 @@
+const title = `Mateusz Kocz ★ Software Developer`
+
 module.exports = {
   siteMetadata: {
-    title: `Mateusz Kocz ★ Software Developer`,
+    title: title,
     description: `My personal website.`,
     author: `@mateuszkocz`,
   },
@@ -15,19 +17,18 @@ module.exports = {
         respectDNT: true,
       },
     },
-    // TODO: bring it back when you have an icon.
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `Mateusz Kocz ★ Software Developer`,
-    //     short_name: `Mateusz Kocz`,
-    //     start_url: `/`,
-    //     background_color: `#fff`,
-    //     theme_color: `#fff`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: title,
+        short_name: `Mateusz Kocz`,
+        start_url: `/`,
+        background_color: `#E5E7EB`,
+        theme_color: `#268bd2`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`,
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 }
