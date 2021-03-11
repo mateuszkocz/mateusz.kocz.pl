@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 
 const IndexPage = () => (
   <Layout>
-    <h1 className="mt-4 mb-0">
+    <h1 className="">
       <span>
         Hi, I'm Mateusz and I'm a software developer.
       </span>
