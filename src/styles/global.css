@@ -24,14 +24,6 @@ a {
   @apply border-b border-current;
 }
 
-@media (prefers-color-scheme: light) {
-  .content {
-    background: -webkit-linear-gradient(bottom, #268bd2, #134669);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
 /* FIXME: Doesn't work */
 ::selection,
 ::-moz-selection {
