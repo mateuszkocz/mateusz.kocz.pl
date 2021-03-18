@@ -9,14 +9,14 @@ const IndexPage = () => (
   <Layout>
     <h1 className="">
       <span>
-        Hi, I'm Mateusz and I'm a software developer.
+        Hi, I'm Mateusz. I'm a&nbsp;software developer and a&nbsp;team lead.
       </span>
     </h1>
     <p>
       <span>
-        I create web applications in JavaScript and TypeScript. I&nbsp;mostly
-        use React. Sometimes I&nbsp;also write some Angular and server-side
-        Express code.
+        I manage a web team and work on JavaScript and TypeScript apps using
+        React and Nest. I'm interested in constant improvement of my craft.
+        Currently, I'm studying software architecture and design patterns.
       </span>
     </p>
     <p>
