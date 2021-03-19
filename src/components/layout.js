@@ -18,7 +18,7 @@ const Layout = ({ children, title = "" }) => {
         <aside
           className="relative my-0 mx-auto pt-4 px-4 pb-0 text-sm text-main">
           <aside
-            className="absolute bottom-0 w-48 text-gray-500 right-full text-right">
+            className="absolute bottom-0 w-32 text-gray-500 right-full text-right">
             <OutboundLink href="https://github.com/mateuszkocz/mateusz.kocz.pl">
               Source on GitHub
             </OutboundLink>
@@ -26,7 +26,7 @@ const Layout = ({ children, title = "" }) => {
           <Link to="/" className="border-none">
             ★
           </Link>
-          <aside className="absolute bottom-0 w-48 text-gray-500 left-full">
+          <aside className="absolute bottom-0 w-32 text-gray-500 left-full">
             Warsaw, {new Date().getFullYear()}
           </aside>
         </aside>
